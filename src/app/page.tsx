@@ -102,7 +102,7 @@ export default function BBBPage() {
         textTransform: 'uppercase',
         fontSize: '0.75rem',
       }}>
-        <p>Github repo</p>
+        <p>Source code</p>
       </a>
     </Container>
   );
