@@ -7,7 +7,17 @@ const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: 'Bring the bird back!',
-  description: 'Get rid of the 𝕏, bring the bird logo back to Twitter',
+  description: 'A chrome extension to get the bird logo back on Twitter',
+  twitter: {
+    card: 'summary_large_image',
+    creator: '@gwendall',
+    images: [`/logo.png`],
+  },
+  openGraph: {
+    locale: 'en-US',
+    type: 'website',
+    images: [`/logo.png`],
+  },
 }
 
 export default function RootLayout({
