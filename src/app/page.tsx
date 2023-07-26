@@ -87,7 +87,7 @@ export default function BBBPage() {
         <Image src="/chrome.ico" alt="icon" width={24} height={24} style={{marginRight: 5}} />
         <span>Get the extension</span>
       </Button>
-      <video width="100%" controls autoPlay>
+      <video width="100%" controls autoPlay loop>
         <source src="/bbb.mp4" type="video/mp4" />
       </video>
       <a href="https://twitter.com/gwendall" target="_blank" rel="noopener noreferrer" style={{
