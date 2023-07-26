@@ -1,95 +1,109 @@
-import Image from 'next/image'
-import styles from './page.module.css'
+'use client';
 
-export default function Home() {
+import Image from "next/image";
+import { createGlobalStyle, styled } from "styled-components";
+import fullPageHeightStyle from "~/utils/fullPageHeightStyle";
+
+const colors = {
+  twitter: '#1DA1F2',
+}
+
+const CHROMESTORE_LINK = "https://chrome.google.com/webstore/detail/bring-the-bird-back/khmjbodjaafnkbmfnjcokflbohbfdoek";
+
+const LocalGlobalStyle = createGlobalStyle`
+  body {
+    background: black;
+  }
+`;
+
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 15px;
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+  ${fullPageHeightStyle}
+  h1 {
+    font-size: 2rem;
+    line-height: 3rem;
+    margin-bottom: 1rem;
+    color: ${colors.twitter};
+    text-transform: uppercase;
+  }
+  a {
+    width: fit-content;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+  video {
+    border-radius: 20px;
+    border: 3px solid ${colors.twitter};
+    margin-bottom: 15px;
+  }
+  p {
+    line-height: 1.5rem;
+  }
+`;
+
+const Button = styled.button`
+  all: unset;
+  box-sizing: border-box;
+  margin: 2rem 0;
+  padding: 10px 15px;
+  background-color: ${colors.twitter};
+  color: rgba(255, 255, 255, 0.8);
+  font-weight: bold;
+  text-transform: uppercase;
+  border-radius: 15px;
+  width: fit-content;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  img {
+    margin-left: -2px;
+    margin-right: 5px;
+  }
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+  &:hover {
+    background-color: rgba(29, 161, 242, 0.8);
+    text-decoration: none !important;
+  }  
+`;
+
+export default function BBBPage() {
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>src/app/page.tsx</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
-      </div>
-
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore the Next.js 13 playground.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
-  )
+    <Container>
+      <LocalGlobalStyle />
+      <h1>Bring the bird back!</h1>
+      <p>{`Don't like this new 𝕏 thing on Twitter? Me neither.`}</p>
+      <p>Ditch it & bring the bird logo back with this extension.</p>
+      <Button as="a" href={ CHROMESTORE_LINK } target="_blank" rel="noopener noreferrer">
+        <Image src="/chrome.ico" alt="icon" width={24} height={24} style={{marginRight: 5}} />
+        <span>Get the extension</span>
+      </Button>
+      <video width="100%" controls autoPlay>
+        <source src="/bbb.mp4" type="video/mp4" />
+      </video>
+      <a href="https://twitter.com/gwendall" target="_blank" rel="noopener noreferrer" style={{
+        color: 'rgba(255, 255, 255, 0.6)',
+        textTransform: 'uppercase',
+        fontSize: '0.75rem',
+      }}>
+        <p>Made by Gwendall</p>
+      </a>
+      <a href="https://github.com/gwendall/bring-the-bird-back" target="_blank" rel="noopener noreferrer" style={{
+        color: 'rgba(255, 255, 255, 0.6)',
+        textTransform: 'uppercase',
+        fontSize: '0.75rem',
+      }}>
+        <p>Github repo</p>
+      </a>
+    </Container>
+  );
 }
